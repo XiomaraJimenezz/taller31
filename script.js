@@ -28,3 +28,39 @@ function drawLine(x1,y1,x2,y2,color){
         y += yIncrement;
     }
 }
+let win = {
+    xmin: 100,
+    ymin: 100,
+    xmax: 400,
+    ymax: 300
+};
+function drawViewport(){
+    drawLine(
+        win.xmin,
+        win.ymin,
+        win.xmax,
+        win.ymin,
+        "blue"
+    );
+    drawLine(
+        win.xmax,
+        win.ymin,
+        win.xmax,
+        win.ymax,
+        "blue"
+    );
+    drawLine(
+        win.xmax,
+        win.ymax,
+        win.xmin,
+        win.ymax,
+        "blue"
+    );
+    drawLine(
+        win.xmin,
+        win.ymax,
+        win.xmin,
+        win.ymin,
+        "blue"
+    );
+}
