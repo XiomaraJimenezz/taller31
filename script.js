@@ -108,3 +108,24 @@ function changeScene(index){
     currentScene = index;
     render();
 }
+const INSIDE = 0;
+const TOP = 1;
+const BOTTOM = 2;
+const RIGHT = 4;
+const LEFT = 8;
+function computeCode(x,y){
+    let code = INSIDE;
+    if(y > win.ymax){
+        code |= TOP;
+    }
+    if(y < win.ymin){
+        code |= BOTTOM;
+    }
+    if(x > win.xmax){
+        code |= RIGHT;
+    }
+    if(x < win.xmin){
+        code |= LEFT;
+    }
+    return code;
+}
