@@ -91,3 +91,20 @@ const lines = [
         desc:"Caso 5"
     }
 ];
+let currentScene = 0;
+function nextScene(){
+    currentScene =
+        (currentScene + 1)
+        % lines.length;
+    render();
+}
+function prevScene(){
+    currentScene =
+        (currentScene - 1 + lines.length)
+        % lines.length;
+    render();
+}
+function changeScene(index){
+    currentScene = index;
+    render();
+}
