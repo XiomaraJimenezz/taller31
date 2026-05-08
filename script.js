@@ -192,3 +192,37 @@ function cohenSutherland(x1,y1,x2,y2){
     }
     return null;
 }
+function render(){
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+    drawViewport();
+    const line = lines[currentScene];
+    drawLine(
+        line.p1.x,
+        line.p1.y,
+        line.p2.x,
+        line.p2.y,
+        "#999"
+    );
+    const clipped =
+        cohenSutherland(
+            line.p1.x,
+            line.p1.y,
+            line.p2.x,
+            line.p2.y
+        );
+    if(clipped){
+        drawLine(
+            clipped.x1,
+            clipped.y1,
+            clipped.x2,
+            clipped.y2,
+            "red"
+        );
+    }
+}
+render();
