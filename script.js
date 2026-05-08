@@ -64,3 +64,30 @@ function drawViewport(){
         "blue"
     );
 }
+const lines = [
+    {
+        p1:{x:150,y:150},
+        p2:{x:350,y:250},
+        desc:"Caso 1"
+    },
+    {
+        p1:{x:20,y:50},
+        p2:{x:80,y:70},
+        desc:"Caso 2"
+    },
+    {
+        p1:{x:50,y:180},
+        p2:{x:250,y:250},
+        desc:"Caso 3"
+    },
+    {
+        p1:{x:250,y:220},
+        p2:{x:470,y:320},
+        desc:"Caso 4"
+    },
+    {
+        p1:{x:50,y:50},
+        p2:{x:450,y:350},
+        desc:"Caso 5"
+    }
+];
