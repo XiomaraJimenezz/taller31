@@ -129,3 +129,66 @@ function computeCode(x,y){
     }
     return code;
 }
+function cohenSutherland(x1,y1,x2,y2){
+    let code1 = computeCode(x1,y1);
+    let code2 = computeCode(x2,y2);
+    let accept = false;
+    while(true){
+        if(!(code1 | code2)){
+            accept = true;
+            break;
+        }
+        else if(code1 & code2){
+            break;
+        }
+        else{
+            let codeOut =
+                code1 ? code1 : code2;
+            let x;
+            let y;
+            if((codeOut & TOP) && (y2 !== y1)){
+                x = x1 + (x2 - x1) *
+                (win.ymax - y1) /
+                (y2 - y1);
+                y = win.ymax;
+            }
+            else if((codeOut & BOTTOM) && (y2 !== y1)){
+                x = x1 + (x2 - x1) *
+                (win.ymin - y1) /
+                (y2 - y1);
+                y = win.ymin;
+            }
+            else if((codeOut & RIGHT) && (x2 !== x1)){
+                y = y1 + (y2 - y1) *
+                (win.xmax - x1) /
+                (x2 - x1);
+                x = win.xmax;
+            }
+            else if((codeOut & LEFT) && (x2 !== x1)){
+                y = y1 + (y2 - y1) *
+                (win.xmin - x1) /
+                (x2 - x1);
+                x = win.xmin;
+            }
+            if(codeOut === code1){
+                x1 = x;
+                y1 = y;
+                code1 = computeCode(x1,y1);
+            }
+            else{
+                x2 = x;
+                y2 = y;
+                code2 = computeCode(x2,y2);
+            }
+        }
+    }
+    if(accept){
+        return{
+            x1,
+            y1,
+            x2,
+            y2
+        };
+    }
+    return null;
+}
