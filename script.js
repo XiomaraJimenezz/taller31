@@ -226,3 +226,18 @@ function render(){
     }
 }
 render();
+function updateWindow(){
+    win.xmin = Number(
+        document.getElementById("winXmin").value
+    );
+    win.ymin = Number(
+        document.getElementById("winYmin").value
+    );
+    win.xmax = Number(
+        document.getElementById("winXmax").value
+    );
+    win.ymax = Number(
+        document.getElementById("winYmax").value
+    );
+    render();
+}
